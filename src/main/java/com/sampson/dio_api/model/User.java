@@ -1,5 +1,7 @@
 package com.sampson.dio_api.model;
 
+import org.springframework.stereotype.Component;
+
 public class User {
 
     private Long id;

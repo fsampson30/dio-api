@@ -36,7 +36,7 @@ public class UserRepository {
     }
 
     public User findByUsername(String name){
-        System.out.printf("Find/username: %d%n",name);
+        System.out.println("Find/username: " + name);
         return new User(1L,"Joao","password");
     }
 
