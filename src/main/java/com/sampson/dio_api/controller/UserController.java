@@ -2,9 +2,7 @@ package com.sampson.dio_api.controller;
 
 import com.sampson.dio_api.model.User;
 import com.sampson.dio_api.repository.UserRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,5 +28,10 @@ public class UserController {
     @GetMapping("/users/name/{username}")
     public User getUserByName(@PathVariable String username){
         return userRepository.findByUsername(username);
+    }
+
+    @PostMapping("/users")
+    public void save(@RequestBody User user){
+        userRepository.save(user);
     }
 }

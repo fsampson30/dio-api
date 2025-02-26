@@ -1,5 +1,7 @@
 package com.sampson.dio_api.repository;
 
+import com.sampson.dio_api.handler.BusinessException;
+import com.sampson.dio_api.handler.CampoObrigatorioException;
 import com.sampson.dio_api.model.User;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +12,13 @@ import java.util.List;
 public class UserRepository {
 
     public void save(User user){
+        if(user.getLogin() ==null){
+            throw new CampoObrigatorioException("login");
+        }
+
+        if(user.getPassword() ==null){
+            throw new BusinessException("Password cannot be empty");
+        }
         if(user.getId()==null){
             System.out.println("SAVE");
         } else {
